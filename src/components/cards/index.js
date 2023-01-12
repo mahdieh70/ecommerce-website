@@ -8,7 +8,7 @@ const Cards = ({ productData }) => {
   const [showModal, setIsShowModal] = useState(false);
 
   const handleModalVisibility = () => {
-    console.log("sdfsdfsdf")
+    console.log("sdfsdfsdf");
     setIsShowModal((prev) => !prev);
   };
 
@@ -17,10 +17,12 @@ const Cards = ({ productData }) => {
       <Modal
         isShow={showModal}
         onClose={handleModalVisibility}
-        title={"test title"}
-      >
-        <div>test content</div>
-      </Modal>
+        image={productData.image}
+        title={productData.title}
+        price={productData.price}
+        category={productData.category}
+        description={productData.description}
+      ></Modal>
       <div className="container">
         <div className="products-area">
           <img src={productData.image} className="product-image" alt="pic" />

@@ -1,27 +1,47 @@
 import React from "react";
 import "./ModalContent.css";
 
-const ModalContent = ({ onClose, title, children }) => {
+const ModalContent = ({
+  onClose,
+  title,
+  image,
+  price,
+  category,
+  description,
+  children,
+}) => {
   return (
-    <div style={{ backgroundColor: "white", borderRadius: 8, width: "60%" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          paddingInline: "10px",
-          marginTop: 10,
-        }}
-      >
-        <div
-          onClick={onClose}
-          style={{ width: 20, height: 20, cursor: "pointer" }}
-        >
-          <i className="fa-solid fa-xmark" />
-        </div>
-
-        <p style={{ fontSize: 16 }}>{title}</p>
+    <div className="modal-container">
+      <div className="image-container">
+        <img src={image} alt="product" />
       </div>
+      <div className="closeModal" onClick={onClose}>
+        <i className="fa-solid fa-xmark"></i>
+      </div>
+      <div className="detailsContainer">
+        <h3>{title}</h3>
+        <p>
+          <span>category: </span>
+          {category}
+        </p>
+        <p>
+          <span>price: </span>
+          {price} $
+        </p>
+        <p className="text">
+          <span>description: </span>
+          {description}
+        </p>
+        <div className="countContainer">
+          <div className="buttons">
+            <span className="mines">-</span>
+            <span className="quantity">0</span>
+            <span className="plus">+</span>
+          </div>
+          <button className="addToCart">Add to cart</button>
+        </div>
+      </div>
+
       <div>{children}</div>
     </div>
   );

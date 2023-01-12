@@ -47,7 +47,10 @@ const Navbar = () => {
           </ul>
         </nav>
         <div className="navbar-icons">
-          <i className="fa-solid fa-cart-shopping"></i>
+          <Link to="/cart">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </Link>
+
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
       </header>

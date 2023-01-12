@@ -1,8 +1,18 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ModalContent } from "./modalContent";
+import "./modal.css";
 
-const Modal = ({ isShow, onClose, title, children }) => {
+const Modal = ({
+  isShow,
+  onClose,
+  title,
+  image,
+  price,
+  category,
+  description,
+  children,
+}) => {
   const test = document.querySelector("body");
 
   useEffect(() => {
@@ -17,29 +27,22 @@ const Modal = ({ isShow, onClose, title, children }) => {
     <>
       {isShow
         ? createPortal(
-            <div
-              onClick={onClose}
-              style={{
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0,0,0,.2)",
-                position: "fixed",
-                top: 0,
-                left: 0,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 1000,
-              }}
-            >
-              <ModalContent
-                // onClose={() => {
-                //   onClose();
-                // }}
-                title={title}
-              >
-                {children}
-              </ModalContent>
+            <div className="portal-root">
+              <div className="overlay" onClick={onClose} />
+              <div className="modal-area">
+                <ModalContent
+                  onClose={() => {
+                    onClose();
+                  }}
+                  title={title}
+                  image={image}
+                  price={price}
+                  category={category}
+                  description={description}
+                >
+                  {children}
+                </ModalContent>
+              </div>
             </div>,
             test
           )
