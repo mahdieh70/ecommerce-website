@@ -1,18 +1,8 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { ModalContent } from "./modalContent";
 import "./modal.css";
 
-const Modal = ({
-  isShow,
-  onClose,
-  title,
-  image,
-  price,
-  category,
-  description,
-  children,
-}) => {
+const Modal = ({ isShow, onClose, children, width }) => {
   const test = document.querySelector("body");
 
   useEffect(() => {
@@ -28,20 +18,30 @@ const Modal = ({
       {isShow
         ? createPortal(
             <div className="portal-root">
-              <div className="overlay" onClick={onClose} />
-              <div className="modal-area">
-                <ModalContent
-                  onClose={() => {
-                    onClose();
-                  }}
-                  title={title}
-                  image={image}
-                  price={price}
-                  category={category}
-                  description={description}
+              <div className="overlay" />
+              <div
+                // onClick={onClose}
+                style={{
+                  position: "fixed",
+                  height: "100%",
+                  width: "100%",
+                  overflow: "auto",
+                }}
+              >
+                <div
+                  style={{ width: width ? width : 600 }}
+                  className="modal-area"
                 >
+                  <i
+                    onClick={() => {
+                      onClose();
+                      console.log("slfj;slkdflskjdf");
+                    }}
+                    className="fa-solid fa-xmark closeModal"
+                  />
+
                   {children}
-                </ModalContent>
+                </div>
               </div>
             </div>,
             test

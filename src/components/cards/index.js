@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Modal from "../modal";
+import { ModalContent } from "./modalContent";
 
 import "./Cards.css";
 
@@ -8,21 +9,20 @@ const Cards = ({ productData }) => {
   const [showModal, setIsShowModal] = useState(false);
 
   const handleModalVisibility = () => {
-    console.log("sdfsdfsdf");
     setIsShowModal((prev) => !prev);
   };
 
   return (
     <>
-      <Modal
-        isShow={showModal}
-        onClose={handleModalVisibility}
-        image={productData.image}
-        title={productData.title}
-        price={productData.price}
-        category={productData.category}
-        description={productData.description}
-      ></Modal>
+      <Modal width={900} isShow={showModal} onClose={handleModalVisibility}>
+        <ModalContent
+          image={productData.image}
+          title={productData.title}
+          price={productData.price}
+          category={productData.category}
+          description={productData.description}
+        />
+      </Modal>
       <div className="container">
         <div className="products-area">
           <img src={productData.image} className="product-image" alt="pic" />

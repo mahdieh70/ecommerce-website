@@ -1,11 +1,6 @@
 .modal-container {
-  background-color: #fff;
-  border-radius: 8px;
-  width: 60%;
-  height: 500px;
   padding: 40px;
   display: flex;
-
   position: relative;
 }
 .image-container {
@@ -81,5 +76,4 @@
   border: none;
   color: #fff;
   cursor: pointer;
- 
 }

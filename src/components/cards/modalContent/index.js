@@ -2,7 +2,6 @@ import React from "react";
 import "./ModalContent.css";
 
 const ModalContent = ({
-  onClose,
   title,
   image,
   price,
@@ -14,9 +13,6 @@ const ModalContent = ({
     <div className="modal-container">
       <div className="image-container">
         <img src={image} alt="product" />
-      </div>
-      <div className="closeModal" onClick={onClose}>
-        <i className="fa-solid fa-xmark"></i>
       </div>
       <div className="detailsContainer">
         <h3>{title}</h3>
