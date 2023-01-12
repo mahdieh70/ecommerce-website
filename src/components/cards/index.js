@@ -1,19 +1,39 @@
 import React from "react";
+import { useState } from "react";
+import Modal from "../modal";
 
 import "./Cards.css";
 
 const Cards = ({ productData }) => {
+  const [showModal, setIsShowModal] = useState(false);
+
+  const handleModalVisibility = () => {
+    console.log("sdfsdfsdf")
+    setIsShowModal((prev) => !prev);
+  };
+
   return (
-    <div className="container">
-      <div className="products-area">
-        <img src={productData.image} className="product-image" alt="pic" />
-        <button className="quickView">Quick View</button>
+    <>
+      <Modal
+        isShow={showModal}
+        onClose={handleModalVisibility}
+        title={"test title"}
+      >
+        <div>test content</div>
+      </Modal>
+      <div className="container">
+        <div className="products-area">
+          <img src={productData.image} className="product-image" alt="pic" />
+          <button onClick={handleModalVisibility} className="quickView">
+            Quick View
+          </button>
+        </div>
+        <div className="productsDetail">
+          <p className="title">{productData.title}</p>
+          <p className="price">{productData.price} $</p>
+        </div>
       </div>
-      <div className="productsDetail">
-        <p className="title">{productData.title}</p>
-        <p className="price">{productData.price} $</p>
-      </div>
-    </div>
+    </>
   );
 };
 
