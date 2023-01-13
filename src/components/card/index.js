@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+
 import Cards from "../cards";
 import "./Card.css";
+import { productsContext } from "../../context/ProductContextProvider";
 
 const Card = () => {
-  const [products, setProducts] = useState([]);
+  const products = useContext(productsContext);
 
-  useEffect(() => {
-    axios.get("http://localhost:8000/products").then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
   return (
     <div className="productsContainer">
       {products.map((item) => (

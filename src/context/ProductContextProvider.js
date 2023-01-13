@@ -1,15 +1,19 @@
 import React, { useState, useEffect, createContext } from "react";
-import { getProducts } from "../api/api";
+
+import axios from "axios";
 
 export const productsContext = createContext();
-const ProvideContextProvider = ({ children }) => {
+
+const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  console.log(products);
+
   useEffect(() => {
-    const fetchAPI = async () => {
-      setProducts(await getProducts());
-    };
-    fetchAPI();
+    axios.get("http://localhost:8000/products").then((response) => {
+      setProducts(response.data);
+    });
   }, []);
+
   return (
     <productsContext.Provider value={products}>
       {children}
@@ -17,4 +21,4 @@ const ProvideContextProvider = ({ children }) => {
   );
 };
 
-export default ProvideContextProvider;
+export default ProductContextProvider;

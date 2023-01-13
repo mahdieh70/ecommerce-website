@@ -8,21 +8,24 @@ import About from "./components/About";
 import Blog from "./components/Blog";
 import Contact from "./components/contact";
 import ShoppingCart from "./components/shoppingCart";
+import ProductContextProvider from "./context/ProductContextProvider";
 
 const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/products" element={<Card />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<ShoppingCart />} />
-      </Routes>
-      <Footer />
-    </div>
+    <ProductContextProvider>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/products" element={<Card />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<ShoppingCart />} />
+        </Routes>
+        <Footer />
+      </div>
+    </ProductContextProvider>
   );
 };
 
