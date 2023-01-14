@@ -8,11 +8,13 @@ const Card = () => {
   const products = useContext(productsContext);
 
   return (
-    <div className="productsContainer">
-      {products.map((item) => (
-        <Cards key={item.id} productData={item} />
-      ))}
-    </div>
+    <>
+      <div className="productsContainer">
+        {products.map((item) => (
+          <Cards key={item.id} productData={item} />
+        ))}
+      </div>
+    </>
   );
 };
 

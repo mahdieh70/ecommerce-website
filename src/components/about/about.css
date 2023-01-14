@@ -2,6 +2,7 @@
   display: flex;
   min-height: 100vh;
   padding: 120px 148px 50px 148px;
+  background-color: #f8f9fa;
 }
 .ourStoryBanner {
   text-align: center;
