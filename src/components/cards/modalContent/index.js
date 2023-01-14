@@ -1,5 +1,12 @@
-import React from "react";
+import { useContext } from "react";
 import "./ModalContent.css";
+
+//functions
+import { isInCart, quantityCount } from "../../../helpers/functions";
+
+//context
+import { cartContext } from "../../../context/CartContextProvider";
+
 
 const ModalContent = ({
   title,
@@ -7,8 +14,11 @@ const ModalContent = ({
   price,
   category,
   description,
+  id,
   children,
+  
 }) => {
+  const { state, dispatch } = useContext(cartContext);
   return (
     <div className="modal-container">
       <div className="image-container">
@@ -28,13 +38,52 @@ const ModalContent = ({
           <span>description: </span>
           {description}
         </p>
-        <div className="countContainer">
-          <div className="buttons">
-            <span className="mines">-</span>
-            <span className="quantity">0</span>
-            <span className="plus">+</span>
-          </div>
-          <button className="addToCart">Add to cart</button>
+        <div className="buttonContainer">
+          {quantityCount(state, id) > 1 && (
+            <button className="mines"
+              onClick={() =>
+                dispatch({ type: "DECREASE", payload: title, image, price, id })
+              }
+            >
+              -
+            </button>
+          )}
+          {quantityCount(state, id) === 1 && (
+            <button className="remove"
+              onClick={() =>
+                dispatch({
+                  type: "REMOVE_ITEM",
+                  payload: title,
+                  image,
+                  price,
+                  id,
+                })
+              }
+            >
+            <i className="fa-solid fa-trash-can"></i>
+            </button>
+          )}
+          {quantityCount(state, id) > 0 && (
+            <span className="quantityCount">{quantityCount(state, id)}</span>
+          )}
+          {isInCart(state, id) ? (
+            <button className="plus"
+             
+              onClick={() =>
+                dispatch({ type: "INCREASE",payload: title, image, price, id })
+              }
+            >
+              +
+            </button>
+          ) : (
+            <button className="addToCart"
+              onClick={() =>
+                dispatch({ type: "ADD_ITEM",payload: title, image, price, id })
+              }
+            >
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
 

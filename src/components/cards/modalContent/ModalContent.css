@@ -47,33 +47,26 @@
 .text {
   margin: 30px 0;
 }
-.countContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 270px;
-}
-.buttons {
-  border: 1px solid gray;
-  padding: 10px 0;
-}
-.buttons span {
-  padding: 10px;
-}
-.buttons :nth-child(2) {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  background-color: #f7f7f7;
-}
-.mines,
-.plus {
-  cursor: pointer;
+.buttonContainer {
+  width: 150px;
 }
 .addToCart {
+  width: 100%;
+  padding: 12px 20px;
   border-radius: 20px;
-  padding: 0 30px;
-  font-size: 15px;
   background-color: green;
   border: none;
   color: #fff;
+  font-size: 14px;
   cursor: pointer;
+}
+.mines,
+.plus,.remove {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.quantityCount{
+  margin: 0 10px;
 }

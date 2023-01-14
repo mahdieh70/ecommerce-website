@@ -34,6 +34,15 @@ const cartReducer = (state, action) => {
         ...sumItems(state.selectedItems),
         checkout: false,
       };
+    case "REMOVE_ITEM":
+      const newSelectedItems = state.selectedItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+      return {
+        ...state,
+        selectedItems: [...newSelectedItems],
+        ...sumItems(newSelectedItems),
+      };
     case "INCREASE":
       const indexI = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
@@ -61,6 +70,7 @@ export const cartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  console.log(state);
 
   return (
     <cartContext.Provider value={{ state, dispatch }}>

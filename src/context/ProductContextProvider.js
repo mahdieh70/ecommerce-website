@@ -6,7 +6,7 @@ export const productsContext = createContext();
 
 const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  console.log(products);
+
 
   useEffect(() => {
     axios.get("http://localhost:8000/products").then((response) => {

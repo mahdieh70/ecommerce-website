@@ -35,7 +35,6 @@ const Modal = ({ isShow, onClose, children, width }) => {
                   <i
                     onClick={() => {
                       onClose();
-                      console.log("slfj;slkdflskjdf");
                     }}
                     className="fa-solid fa-xmark closeModal"
                   />

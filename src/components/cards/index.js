@@ -10,11 +10,13 @@ const Cards = ({ productData }) => {
 
   const handleModalVisibility = () => {
     setIsShowModal((prev) => !prev);
+   
   };
+ 
 
   return (
     <>
-      <Modal width={900} isShow={showModal} onClose={handleModalVisibility}>
+      <Modal width={900} isShow={showModal} onClose={handleModalVisibility} >
         <ModalContent
           image={productData.image}
           title={productData.title}
