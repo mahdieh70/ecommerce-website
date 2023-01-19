@@ -6,6 +6,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.checkoutBanner h1 {
+  padding-top: 120px;
+}
 .checkoutContainer {
   min-height: 100vh;
   display: flex;
@@ -41,6 +44,17 @@ input {
   font-size: 14px;
   margin: 14px 0;
   border: 1px solid lightgr;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 .orderContainer {
   display: flex;

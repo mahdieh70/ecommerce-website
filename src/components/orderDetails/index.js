@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./orderDetails.css";
-import { cartContext } from "../../context/CartContextProvider";
 
 const OrderDetails = ({ product, price, quantity }) => {
-  const { state, dispatch } = useContext(cartContext);
   return (
     <>
       <div className="column">

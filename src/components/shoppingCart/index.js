@@ -37,18 +37,13 @@ const ShoppingCart = () => {
                 {state.total} $
               </p>
               <div className="buttonsArea">
-                <button
-                  className="checkout"
-                  onClick={handleClick}
-                >
+                <button className="checkout" onClick={handleClick}>
                   Check Out
                 </button>
                 <button
                   className="clear"
                   onClick={() => dispatch({ type: "CLEAR" })}
-                >
-                  Clear
-                </button>
+                >Clear</button>
               </div>
             </div>
           )}

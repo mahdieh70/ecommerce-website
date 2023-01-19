@@ -2,16 +2,34 @@ import React, { useState, useContext } from "react";
 import "./checkout.css";
 import { cartContext } from "../../context/CartContextProvider";
 import OrderDetails from "../orderDetails";
-import "../modal/modal.css";
+import Modal from "../modal";
+import ModalContent from "../check out/modalContent/ModalContent";
+
 
 const Checkout = () => {
   const { state, dispatch } = useContext(cartContext);
+  const [showModal, setIsShowModal] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setphone] = useState("");
+
+  const clickHandler = () => {
+    if (state.total > 0) {
+      dispatch({ type: "PLACE ORDER" });
+      setIsShowModal((prev) => !prev);
+    }
+  };
+
   return (
     <div>
+      <Modal
+        width={500}
+        isShow={showModal}
+        onClose={() => setIsShowModal((prev) => !prev)}
+      >
+        <ModalContent />
+      </Modal>
       <div className="checkoutBanner">
         <h1>Check Out</h1>
       </div>
@@ -72,16 +90,20 @@ const Checkout = () => {
                 product={order.title}
                 price={order.price}
                 quantity={order.quantity}
+                total={order.total}
               />
             ))}
             <div className="footeColumn">
               <div className="totalPriceRow">
-                <span>Total Price:</span>
+                <span>Total Price: </span>
                 {state.total} $
               </div>
             </div>
           </div>
-          <button className="placeOrder">Place Order</button>
+
+          <button className="placeOrder" onClick={clickHandler}>
+            Place Order
+          </button>
         </div>
       </div>
     </div>
