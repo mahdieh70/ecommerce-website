@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Cards from "../cards";
 import "./Card.css";
-import { productsContext } from "../../context/ProductContextProvider";
 
 const Card = () => {
-  const products = useContext(productsContext);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -19,3 +24,7 @@ const Card = () => {
 };
 
 export default Card;
+
+// {
+//   products.map((item) => <Cards key={item.id} productData={item} />);
+// }

@@ -1,0 +1,117 @@
+.checkoutBanner {
+  text-align: center;
+  height: 240px;
+  background-image: url("../../assets/bg_6.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.checkoutContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 155px;
+  background-color: #f8f9fa;
+}
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 20px;
+}
+.bilingDetails {
+  border: 1px solid gray;
+  height: fit-content;
+  padding: 0 0 30px 0;
+}
+.fullname,
+.phoneAndAddress {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.billingHeader {
+  margin-bottom: 30px;
+  background-color: #efefef;
+  padding: 15px 20px;
+  opacity: 0.7;
+}
+input {
+  padding: 10px;
+  font-size: 14px;
+  margin: 14px 0;
+  border: 1px solid lightgr;
+}
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: fit-content;
+}
+.orderDetails {
+  border: 1px solid gray;
+  width: 400px;
+}
+
+.orderDetailsTable {
+  display: flex;
+  flex-direction: column;
+}
+.headerColumn {
+  background-color: #efefef;
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  text-align: center;
+  width: 400px;
+  padding: 10px 0;
+}
+.column {
+  border: 1px solid gray;
+  display: flex;
+  width: 400px;
+}
+.productRow {
+  width: 200px;
+  border-right: 1px solid gray;
+}
+.priceRow {
+  width: 120px;
+  border-right: 1px solid gray;
+  text-align: center;
+}
+.quantityRow {
+  width: 80px;
+  text-align: center;
+}
+.priceRow,
+.productRow,
+.quantityRow {
+  padding: 5px 8px;
+}
+.footeColumn {
+  background-color: #efefef;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  text-align: center;
+  width: 400px;
+  padding: 10px 0;
+}
+.placeOrder {
+  margin-top: 30px;
+  width: 130px;
+  padding: 12px 15px;
+  border-radius: 20px;
+  background-color: #f28544;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.placeOrder:hover {
+  background-color: transparent;
+  color: black;
+  border: 1px solid #f28544;
+}

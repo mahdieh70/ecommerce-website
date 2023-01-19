@@ -7,7 +7,6 @@ import { isInCart, quantityCount } from "../../../helpers/functions";
 //context
 import { cartContext } from "../../../context/CartContextProvider";
 
-
 const ModalContent = ({
   title,
   image,
@@ -16,7 +15,6 @@ const ModalContent = ({
   description,
   id,
   children,
-  
 }) => {
   const { state, dispatch } = useContext(cartContext);
   return (
@@ -40,45 +38,54 @@ const ModalContent = ({
         </p>
         <div className="buttonContainer">
           {quantityCount(state, id) > 1 && (
-            <button className="mines"
+            <button
+              className="mines"
               onClick={() =>
-                dispatch({ type: "DECREASE", payload: title, image, price, id })
+                dispatch({
+                  type: "DECREASE",
+                  payload: { title, image, price, id },
+                })
               }
             >
               -
             </button>
           )}
           {quantityCount(state, id) === 1 && (
-            <button className="remove"
+            <button
+              className="remove"
               onClick={() =>
                 dispatch({
                   type: "REMOVE_ITEM",
-                  payload: title,
-                  image,
-                  price,
-                  id,
+                  payload: { title, image, price, id },
                 })
               }
             >
-            <i className="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-trash-can"></i>
             </button>
           )}
           {quantityCount(state, id) > 0 && (
             <span className="quantityCount">{quantityCount(state, id)}</span>
           )}
           {isInCart(state, id) ? (
-            <button className="plus"
-             
+            <button
+              className="plus"
               onClick={() =>
-                dispatch({ type: "INCREASE",payload: title, image, price, id })
+                dispatch({
+                  type: "INCREASE",
+                  payload: { title, image, price, id },
+                })
               }
             >
               +
             </button>
           ) : (
-            <button className="addToCart"
+            <button
+              className="addToCart"
               onClick={() =>
-                dispatch({ type: "ADD_ITEM",payload: title, image, price, id })
+                dispatch({
+                  type: "ADD_ITEM",
+                  payload: { title, image, price, id },
+                })
               }
             >
               Add to Cart

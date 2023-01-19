@@ -1,0 +1,64 @@
+.cartBanner {
+  text-align: center;
+  height: 240px;
+  background-image: url("../../assets/bg_6.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cartBanner h1 {
+  padding-top: 120px;
+}
+.cartDetailsContainer {
+  width: 600px;
+
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  row-gap: 15px;
+
+}
+.cartContainer {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 50px 151px;
+}
+.paymentsArea {
+  /* border: 1px solid blue; */
+  width: 300px;
+  /* height: auto; */
+  height: fit-content;
+  /* padding: 10px; */
+  border-radius: 5px;
+
+  box-shadow: 0 5px 24px rgb(149 157 165 / 40%);
+  background-color: #fff;
+}
+.paymentsArea span {
+  color: green;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.paymentsArea p {
+  padding: 10px;
+}
+.buttonsArea {
+  padding: 10px;
+}
+.buttonsArea button {
+  padding: 8px 12px;
+  margin-right: 16px;
+  border-radius: 5px;
+  background-color: green;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.buttonsArea button:hover {
+  border: 1px solid green;
+  background-color: transparent;
+  color: black;
+}

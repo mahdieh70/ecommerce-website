@@ -8,25 +8,29 @@ import "./Cards.css";
 const Cards = ({ productData }) => {
   const [showModal, setIsShowModal] = useState(false);
 
-  const handleModalVisibility = () => {
-    setIsShowModal((prev) => !prev);
-  };
-
   return (
-    <>
-      <Modal width={900} isShow={showModal} onClose={handleModalVisibility}>
+    <div>
+      <Modal
+        width={900}
+        isShow={showModal}
+        onClose={() => setIsShowModal((prev) => !prev)}
+      >
         <ModalContent
           image={productData.image}
           title={productData.title}
           price={productData.price}
           category={productData.category}
           description={productData.description}
+          id={productData.id}
         />
       </Modal>
       <div className="container">
         <div className="products-area">
           <img src={productData.image} className="product-image" alt="pic" />
-          <button onClick={handleModalVisibility} className="quickView">
+          <button
+            onClick={() => setIsShowModal((prev) => !prev)}
+            className="quickView"
+          >
             Quick View
           </button>
         </div>
@@ -35,7 +39,7 @@ const Cards = ({ productData }) => {
           <p className="price">{productData.price} $</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
