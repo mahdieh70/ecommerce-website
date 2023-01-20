@@ -1,4 +1,6 @@
 import React from "react";
+
+//style
 import "./orderDetails.css";
 
 const OrderDetails = ({ product, price, quantity }) => {

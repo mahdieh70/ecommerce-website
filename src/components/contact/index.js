@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+//style
 import "./contact.css";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const inputsRef = useRef(null);
+
+  useEffect(() => {
+    inputsRef.current.focus();
+  }, []);
   return (
     <div>
       <div className="contactBanner">
@@ -34,11 +44,32 @@ const Contact = () => {
             ex venenatis ultricies at cursus mauris.
           </p>
           <form className="form">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <input type="text" placeholder="Subject" />
-            <textarea className="textArea" placeholder="Your Message"></textarea>
-            <button className="submitBtn" type="submit">Send Message</button>
+            <input
+              type="text"
+              ref={inputsRef}
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+            <textarea
+              className="textArea"
+              placeholder="Your Message"
+            ></textarea>
+            <button className="submitBtn" type="submit">
+              Send Message
+            </button>
           </form>
         </div>
       </div>

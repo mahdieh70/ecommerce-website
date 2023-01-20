@@ -4,12 +4,12 @@
 }
 .orderModalContainer p {
   font-size: 20px;
-  color: green;
+  color: black;
   margin-bottom: 16px;
 }
 .orderModalContainer button {
   width: 140px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   background-color: green;
   border: none;

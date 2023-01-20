@@ -1,5 +1,9 @@
 import React from "react";
+
+//assets
 import about from "../../assets/about.jpg";
+
+//style
 import "./about.css";
 
 const About = () => {

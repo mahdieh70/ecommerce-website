@@ -35,15 +35,20 @@
 }
 .billingHeader {
   margin-bottom: 30px;
-  background-color: #efefef;
+  background-color: #d5d4d4;
   padding: 15px 20px;
+  border-bottom: 1px solid gray;
   opacity: 0.7;
 }
 input {
   padding: 10px;
   font-size: 14px;
   margin: 14px 0;
-  border: 1px solid lightgr;
+  outline: none;
+  border: 1px solid lightgray;
+}
+input:focus {
+  border: 1px solid blue;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -59,7 +64,6 @@ input[type="number"] {
 .orderContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   height: fit-content;
 }
@@ -104,7 +108,7 @@ input[type="number"] {
 .quantityRow {
   padding: 5px 8px;
 }
-.footeColumn {
+.footerColumn {
   background-color: #efefef;
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
@@ -118,7 +122,7 @@ input[type="number"] {
   width: 130px;
   padding: 12px 15px;
   border-radius: 20px;
-  background-color: #f28544;
+  background-color: green;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -127,5 +131,5 @@ input[type="number"] {
 .placeOrder:hover {
   background-color: transparent;
   color: black;
-  border: 1px solid #f28544;
+  border: 1px solid green;
 }

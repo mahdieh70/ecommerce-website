@@ -1,4 +1,9 @@
 .productsContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.itemsContainer {
   min-height: 100vh;
   display: flex;
   width: 100%;
@@ -8,4 +13,21 @@
   margin: 0 auto;
   min-height: 100vh;
   padding: 80px 0;
+}
+.loadMoreContainer button {
+  width: 120px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  border: none;
+  outline: none;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+}
+.loadMoreContainer button:hover {
+  border: 1px solid green;
+  background-color: #fff;
+  color: black;
 }

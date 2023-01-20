@@ -1,10 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
+
+//style
 import "./checkout.css";
+
+//context
 import { cartContext } from "../../context/CartContextProvider";
+
+//component
 import OrderDetails from "../orderDetails";
 import Modal from "../modal";
 import ModalContent from "../check out/modalContent/ModalContent";
-
 
 const Checkout = () => {
   const { state, dispatch } = useContext(cartContext);
@@ -13,6 +18,12 @@ const Checkout = () => {
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setphone] = useState("");
+
+  let inputsRef = useRef(null);
+
+  useEffect(() => {
+    inputsRef.current.focus();
+  }, []);
 
   const clickHandler = () => {
     if (state.total > 0) {
@@ -40,6 +51,7 @@ const Checkout = () => {
             <label>First Name</label>
             <input
               className="firstName"
+              ref={inputsRef}
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -93,7 +105,7 @@ const Checkout = () => {
                 total={order.total}
               />
             ))}
-            <div className="footeColumn">
+            <div className="footerColumn">
               <div className="totalPriceRow">
                 <span>Total Price: </span>
                 {state.total} $

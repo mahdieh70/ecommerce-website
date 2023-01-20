@@ -1,4 +1,6 @@
 import { useContext } from "react";
+
+//style
 import "./ModalContent.css";
 
 //functions

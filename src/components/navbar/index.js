@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
+
+//assets
 import logo from "../../assets/logoipsum-248.svg";
-import { Link } from "react-router-dom";
+
+//router
+import { Link, NavLink } from "react-router-dom";
+
+//context
 import { cartContext } from "../../context/CartContextProvider";
+
+//style
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -32,16 +40,44 @@ const Navbar = () => {
         <nav className="navbar">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "activeElem" : "inActive"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <NavLink
+                to="/products"
+                className={({ isActive }) =>
+                  isActive ? "activeElem" : "inActive"
+                }
+              >
+                Products
+              </NavLink>
             </li>
             <li>
-              <Link to="about">About</Link>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "activeElem" : "inActive"
+                }
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <Link to="contact">Contact</Link>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "activeElem" : "inActive"
+                }
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </nav>

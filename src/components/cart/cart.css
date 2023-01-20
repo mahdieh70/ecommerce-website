@@ -33,15 +33,28 @@
 .buttonWrapper button {
   width: 25px;
   padding: 4px 0;
-  border: 1px solid #e0720a;
+  border: 1px solid green;
   background-color: transparent;
   border-radius: 5px;
   font-size: 14px;
-
+  cursor: pointer;
+}
+.buttonWrapper .trashBtn {
+  width: 25px;
+  padding: 4px 0;
+  border: 1px solid crimson!important;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
 }
 .buttonWrapper button:hover {
-  background-color: #ffbc7d;
+  background-color: green;
+  border: none;
+  color: white;
+}
+.buttonWrapper .trashBtn:hover {
+  background-color: crimson!important;
   border: none;
   color: white;
 }

@@ -10,16 +10,17 @@
   padding-top: 120px;
 }
 .cartDetailsContainer {
-  width: 600px;
-
+  width: 650px;
+  height: 100vh;
+  overflow: auto;
+  padding: 16px;
   display: flex;
-
   align-items: center;
   flex-direction: column;
   row-gap: 15px;
-
 }
 .cartContainer {
+  position: relative;
   display: flex;
   width: 100%;
   min-height: 100vh;
@@ -27,11 +28,10 @@
   padding: 50px 151px;
 }
 .paymentsArea {
-  /* border: 1px solid blue; */
   width: 300px;
-  /* height: auto; */
+
   height: fit-content;
-  /* padding: 10px; */
+
   border-radius: 5px;
 
   box-shadow: 0 5px 24px rgb(149 157 165 / 40%);
@@ -39,6 +39,7 @@
 }
 .paymentsArea span {
   color: green;
+  margin-right: 10px;
   margin-right: 10px;
   font-weight: bold;
 }
@@ -48,7 +49,7 @@
 .buttonsArea {
   padding: 10px;
 }
-.buttonsArea button {
+.buttonsArea .checkout {
   padding: 8px 12px;
   margin-right: 16px;
   border-radius: 5px;
@@ -57,8 +58,41 @@
   color: #fff;
   cursor: pointer;
 }
-.buttonsArea button:hover {
+.buttonsArea .clear {
+  padding: 8px 12px;
+  margin-right: 16px;
+  border-radius: 5px;
+  background-color: crimson;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.buttonsArea .checkout:hover {
   border: 1px solid green;
   background-color: transparent;
   color: black;
+}
+.buttonsArea .clear:hover {
+  border: 1px solid crimson;
+  background-color: transparent;
+  color: black;
+}
+.complete {
+  position: absolute;
+  left: 637px;
+  text-align: center;
+}
+.complete h3 {
+  color: crimson;
+  font-size: 20px;
+  margin-bottom: 26px;
+}
+.complete a {
+  text-decoration: none;
+  background-color: green;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 7px 17px;
+  border-radius: 5px;
+  cursor: pointer;
 }

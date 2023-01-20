@@ -1,4 +1,6 @@
 import React from "react";
+
+//component
 import Banner from "../banner";
 import Card from "../card";
 

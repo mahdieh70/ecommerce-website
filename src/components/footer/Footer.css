@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 .socialIcons i:hover {
-  color: #b14454;
+  color: #F28544;
 }
 .links {
   width: 30%;
@@ -42,7 +42,7 @@
   opacity: 0.6;
 }
 .links a:hover {
-  color: #b14454;
+  color: #F28544;
 }
 .contactUs {
   width: 30%;

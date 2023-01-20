@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
+
+//context
 import { cartContext } from "../../context/CartContextProvider";
+
+//style
 import "../cart/cart.css";
 
 const Cart = (props) => {
@@ -24,12 +28,12 @@ const Cart = (props) => {
               -
             </button>
           ) : (
-            <button
+            <button className="trashBtn"
               onClick={() =>
                 dispatch({ type: "REMOVE_ITEM", payload: props.data })
               }
             >
-              <i className="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-trash-can "></i>
             </button>
           )}
           <span>{quantity}</span>

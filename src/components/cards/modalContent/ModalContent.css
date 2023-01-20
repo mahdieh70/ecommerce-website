@@ -39,7 +39,6 @@
 .detailsContainer span {
   color: green;
   font-size: 18px;
-  font-weight: bold;
 }
 .detailsContainer p {
   opacity: 0.8;
@@ -60,13 +59,44 @@
   font-size: 14px;
   cursor: pointer;
 }
+.addToCart:hover {
+  border: 1px solid green;
+  background-color: transparent;
+  color: black;
+}
 .mines,
-.plus,.remove {
+.plus {
   padding: 5px 10px;
   font-size: 16px;
+  background-color: green;
+  border: none;
+  outline: none;
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
 }
-.quantityCount{
+.remove {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.mines:hover,
+.plus:hover {
+  border: 1px solid green;
+  background-color: transparent;
+  color: black;
+}
+.remove:hover {
+  border: 1px solid crimson;
+  background-color: transparent;
+  color: black;
+}
+.quantityCount {
   margin: 0 10px;
+  color: black !important;
 }

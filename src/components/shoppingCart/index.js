@@ -1,7 +1,15 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router";
+
+//router
+import { useNavigate, Link } from "react-router-dom";
+
+//component
 import Cart from "../cart/index";
+
+//style
 import "./shopingCart.css";
+
+//context
 import { cartContext } from "../../context/CartContextProvider";
 
 const ShoppingCart = () => {
@@ -43,11 +51,19 @@ const ShoppingCart = () => {
                 <button
                   className="clear"
                   onClick={() => dispatch({ type: "CLEAR" })}
-                >Clear</button>
+                >
+                  Clear
+                </button>
               </div>
             </div>
           )}
         </div>
+        {state.itemsCounter === 0 && (
+          <div className="complete">
+            <h3>Your shopping cart is empty!</h3>
+            <Link to="/products">Go To Shop</Link>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -36,29 +36,33 @@
   cursor: pointer;
 }
 .navbar-icons i:hover {
-  color: #b14454;
+  color: #f28544;
 }
-.navbar ul li a {
+
+.inActive {
   font-size: 20px;
-  color: 0 10px;
   color: black;
   margin: 0 10px;
   text-decoration: none;
 }
-.navbar ul li a:hover {
-  color: #f7444e;
+.activeElem {
+  font-size: 20px;
+  color: #f28544;
+  margin: 0 10px;
+  text-decoration: none;
 }
 .navbar-icons span {
   position: absolute;
   top: -10px;
   right: 0;
-  background-color: #F28544;
+  background-color: #fff;
   border-radius: 50%;
-  width: 17px;
-  height: 17px;
+  border: 1px solid #f28544;
+  width: 19px;
+  height: 19px;
   line-height: 18px;
   font-size: 0.75rem;
   text-align: center;
   font-weight: bold;
-  color: #fff;
+  color: #f28544;
 }

@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
+
+//portal
 import { createPortal } from "react-dom";
+
+//style
 import "./modal.css";
 
 const Modal = ({ isShow, onClose, children, width }) => {
@@ -20,7 +24,6 @@ const Modal = ({ isShow, onClose, children, width }) => {
             <div className="portal-root">
               <div className="overlay" />
               <div
-                // onClick={onClose}
                 style={{
                   position: "fixed",
                   height: "100%",
@@ -38,7 +41,6 @@ const Modal = ({ isShow, onClose, children, width }) => {
                     }}
                     className="fa-solid fa-xmark closeModal"
                   />
-
                   {children}
                 </div>
               </div>

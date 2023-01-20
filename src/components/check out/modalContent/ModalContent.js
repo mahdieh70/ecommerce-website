@@ -1,5 +1,9 @@
 import React from "react";
+
+//style
 import "../../check out/modalContent/modalContent.css";
+
+//router
 import { useNavigate } from "react-router-dom";
 
 const ModalContent = () => {

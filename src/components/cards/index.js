@@ -1,6 +1,9 @@
-import React from "react";
 import { useState } from "react";
+
+//modal
 import Modal from "../modal";
+
+//modalContent
 import { ModalContent } from "./modalContent";
 
 import "./Cards.css";
