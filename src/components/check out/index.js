@@ -1,4 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 //style
 import "./checkout.css";
@@ -6,7 +8,7 @@ import "./checkout.css";
 //context
 import { cartContext } from "../../context/CartContextProvider";
 
-//component
+//components
 import OrderDetails from "../orderDetails";
 import Modal from "../modal";
 import ModalContent from "../check out/modalContent/ModalContent";
@@ -14,23 +16,45 @@ import ModalContent from "../check out/modalContent/ModalContent";
 const Checkout = () => {
   const { state, dispatch } = useContext(cartContext);
   const [showModal, setIsShowModal] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setphone] = useState("");
+  let inputRef = useRef(null);
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      address: "",
+      phone: "",
+    },
 
-  let inputsRef = useRef(null);
+    //form validation
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Firstname Required"),
+      lastName: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .required("Lastname Required"),
+      address: Yup.string().required("Address Required"),
+      phone: Yup.string().required("Phone Required"),
+    }),
 
+    //submit button function
+    onSubmit: (values, { resetForm, validateForm }) => {
+      if (state.total > 0) {
+        validateForm()
+          .then(() => {})
+          .catch(() => {});
+        resetForm({ values: "" });
+        JSON.stringify(values, null, 2);
+        dispatch({ type: "PLACE ORDER" });
+        setIsShowModal((prev) => !prev);
+      }
+    },
+  });
+
+  //focus on input when page load
   useEffect(() => {
-    inputsRef.current.focus();
+    inputRef.current.focus();
   }, []);
-
-  const clickHandler = () => {
-    if (state.total > 0) {
-      dispatch({ type: "PLACE ORDER" });
-      setIsShowModal((prev) => !prev);
-    }
-  };
 
   return (
     <div>
@@ -47,43 +71,78 @@ const Checkout = () => {
       <div className="checkoutContainer">
         <div className="bilingDetails">
           <h3 className="billingHeader">BILLING DETAILS</h3>
-          <div className="inputsContainer">
-            <label>First Name</label>
-            <input
-              className="firstName"
-              ref={inputsRef}
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
-          <div className="inputsContainer">
-            <label>Last Name</label>
-            <input
-              className="lastName"
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div className="inputsContainer">
-            <label>Address</label>
-            <input
-              className="address"
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div>
-          <div className="inputsContainer">
-            <label>Phone</label>
-            <input
-              className="phone"
-              type="number"
-              value={phone}
-              onChange={(e) => setphone(e.target.value)}
-            />
-          </div>
+
+          <form onSubmit={formik.handleSubmit}>
+            <div className="formDetailsContainer">
+              <div className="inputsContainer">
+                <label htmlFor="firstname">First Name</label>
+                <input
+                  className="firstname"
+                  name="firstName"
+                  type="text"
+                  disabled={state.total === 0}
+                  ref={inputRef}
+                  {...formik.getFieldProps("firstName")}
+                />
+
+                {formik.errors.firstName ? (
+                  <div className="errorText">{formik.errors.firstName}</div>
+                ) : null}
+              </div>
+
+              <div className="inputsContainer">
+                <label htmlFor="lastname">Last Name</label>
+                <input
+                  className="lastname"
+                  name="lastName"
+                  type="text"
+                  disabled={state.total === 0}
+                  {...formik.getFieldProps("lastName")}
+                />
+
+                {formik.touched.lastName && formik.errors.lastName ? (
+                  <div className="errorText">{formik.errors.lastName}</div>
+                ) : null}
+              </div>
+
+              <div className="inputsContainer">
+                <label htmlFor="firstname">Address</label>
+                <input
+                  className="address"
+                  name="address"
+                  type="text"
+                  disabled={state.total === 0}
+                  {...formik.getFieldProps("address")}
+                />
+
+                {formik.touched.address && formik.errors.address ? (
+                  <div className="errorText">{formik.errors.address}</div>
+                ) : null}
+              </div>
+
+              <div className="inputsContainer">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  className="phone"
+                  name="phone"
+                  type="number"
+                  disabled={state.total === 0}
+                  {...formik.getFieldProps("phone")}
+                />
+
+                {formik.touched.phone && formik.errors.phone ? (
+                  <div className="errorText">{formik.errors.phone}</div>
+                ) : null}
+              </div>
+            </div>
+            <button
+              type="submit"
+              disabled={state.total === 0}
+              className={state.total === 0 ? "deactive" : "placeOrder"}
+            >
+              Place Order
+            </button>
+          </form>
         </div>
 
         <div className="orderContainer">
@@ -112,10 +171,6 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-
-          <button className="placeOrder" onClick={clickHandler}>
-            Place Order
-          </button>
         </div>
       </div>
     </div>

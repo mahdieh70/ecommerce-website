@@ -12,6 +12,7 @@ import "./Card.css";
 const Card = () => {
   const [products, setProducts] = useState([]);
   const [visible, setVisible] = useState(8);
+
   useEffect(() => {
     axios.get("http://localhost:8000/products").then((response) => {
       setProducts(response.data);
@@ -44,7 +45,3 @@ const Card = () => {
 };
 
 export default Card;
-
-// {
-//   products.map((item) => <Cards key={item.id} productData={item} />);
-// }

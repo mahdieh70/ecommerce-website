@@ -1,17 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import { Formik, Form, useField } from "formik";
+import * as Yup from "yup";
 
 //style
 import "./contact.css";
 
-const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const inputsRef = useRef(null);
+const MyTextInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
 
-  useEffect(() => {
-    inputsRef.current.focus();
-  }, []);
+  return (
+    <>
+      <input {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="errorMessage">{meta.error}</div>
+      ) : null}
+    </>
+  );
+};
+
+const MyTextArea = ({ ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <textarea className="text-area" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="errorMessage">{meta.error}</div>
+      ) : null}
+    </>
+  );
+};
+
+const Contact = () => {
   return (
     <div>
       <div className="contactBanner">
@@ -43,34 +62,35 @@ const Contact = () => {
             justo, ultrices ac nisl sed, lobortis porta elit. Fusce in metus ac
             ex venenatis ultricies at cursus mauris.
           </p>
-          <form className="form">
-            <input
-              type="text"
-              ref={inputsRef}
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-            <textarea
-              className="textArea"
-              placeholder="Your Message"
-            ></textarea>
-            <button className="submitBtn" type="submit">
-              Send Message
-            </button>
-          </form>
+          <Formik
+            initialValues={{ name: "", email: "", subject: "", textArea: "" }}
+            validationSchema={Yup.object({
+              name: Yup.string()
+                .max(15, "Must be 15 characters or less")
+                .required("Required"),
+              email: Yup.string()
+                .email("Invalid email address")
+                .required("Required"),
+              subject: Yup.string()
+                .max(20, "Must be 20 characters or less")
+                .required("Required"),
+              textArea: Yup.string().required("Required"),
+            })}
+            onSubmit={(values, { setSubmitting }) => {
+              JSON.stringify(values, null, 2);
+              setSubmitting(false);
+            }}
+          >
+            <Form className="form">
+              <MyTextInput name="name" type="text" placeholder="Your Name" />
+              <MyTextInput name="email" type="email" placeholder="Your Email" />
+              <MyTextInput name="subject" type="text" placeholder="Subject" />
+              <MyTextArea name="textArea" rows="5" placeholder="Your Message" />
+              <button className="submitBtn" type="submit">
+                Send Message
+              </button>
+            </Form>
+          </Formik>
         </div>
       </div>
     </div>

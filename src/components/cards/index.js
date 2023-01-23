@@ -6,6 +6,7 @@ import Modal from "../modal";
 //modalContent
 import { ModalContent } from "./modalContent";
 
+//style
 import "./Cards.css";
 
 const Cards = ({ productData }) => {

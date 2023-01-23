@@ -48,7 +48,6 @@ const cartReducer = (state, action) => {
         (item) => item.id === action.payload.id
       );
       state.selectedItems[indexI].quantity++;
-      console.log(state);
       return {
         ...state,
         ...sumItems(state.selectedItems),
