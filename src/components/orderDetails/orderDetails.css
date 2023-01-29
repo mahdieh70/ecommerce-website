@@ -21,4 +21,18 @@
 .quantityRow {
   padding: 5px 8px;
 }
-
+@media (max-width: 480px) {
+  .column {
+    width: 100%;
+    font-size: 12px;
+  }
+  .productRow{
+    width: 40%;
+  }
+  .priceRow{
+    width: 25%;
+  }
+  .quantityRow {
+    width: 35%;
+  }
+}

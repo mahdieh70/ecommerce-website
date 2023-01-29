@@ -10,7 +10,7 @@
   padding-top: 120px;
 }
 .cartDetailsContainer {
-  width: 650px;
+  width: 610px;
   height: 100vh;
   overflow: auto;
   padding: 16px;
@@ -29,11 +29,7 @@
 }
 .paymentsArea {
   width: 300px;
-
-  height: fit-content;
-
   border-radius: 5px;
-
   box-shadow: 0 5px 24px rgb(149 157 165 / 40%);
   background-color: #fff;
 }
@@ -78,9 +74,11 @@
   color: black;
 }
 .complete {
-  position: absolute;
-  left: 637px;
-  text-align: center;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 .complete h3 {
   color: crimson;
@@ -95,4 +93,79 @@
   padding: 7px 17px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .cartContainer {
+    padding: 50px 60px;
+  }
+  .cartDetailsContainer {
+    width: 500px;
+  }
+  .paymentsArea {
+    width: 210px;
+  }
+  .paymentsArea span {
+    font-size: 14px;
+  }
+  .buttonsArea .checkout {
+    padding: 6px 10px;
+    height: 35px;
+  }
+  .buttonsArea .clear {
+    padding: 6px 10px;
+    height: 35px;
+  }
+}
+@media (max-width: 769px) {
+  .cartBanner {
+    height: 200px;
+  }
+  .cartBanner h1 {
+    padding-top: 100px;
+    font-size: 26px;
+}
+  .cartContainer {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .cartDetailsContainer {
+    padding: 16px 30px;
+    margin: 30px 0;
+  }
+  .paymentsContainer {
+    width: 54%;
+  }
+  .paymentsArea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartBanner {
+    height: 130px;
+  }
+  .cartBanner h1 {
+    padding-top: 65px;
+    font-size: 23px;
+  }
+  .cartContainer {
+    padding: 50px 0;
+  }
+  .paymentsContainer {
+    width: 70%;
+  }
+  .cartDetailsContainer {
+    width: 100%;
+    padding: 12px;
+  }
+  .complete h3{
+    font-size: 18px;
+  }
+  .complete a{
+    font-size: 12px;
+  }
+  .paymentsArea span{
+    font-size: 12px;
+  }
 }

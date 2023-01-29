@@ -1,26 +1,26 @@
 .footer-container {
   display: flex;
-  padding: 50px;
-  background-color: rgb(33, 31, 31);
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  background-color: #252525;
   color: white;
 }
 .description {
   width: 40%;
   color: white;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .socialIcons {
-  text-align: center;
-  margin-top: 40px;
+  padding: 15px 0 25px 0;
 }
 .socialIcons i {
-  margin: 0 10px;
+  margin: 0 18px 0 0;
   opacity: 0.6;
   font-size: 18px;
   cursor: pointer;
 }
 .socialIcons i:hover {
-  color: #F28544;
+  color: #f28544;
 }
 .links {
   width: 30%;
@@ -42,7 +42,7 @@
   opacity: 0.6;
 }
 .links a:hover {
-  color: #F28544;
+  color: #f28544;
 }
 .contactUs {
   width: 30%;
@@ -66,4 +66,71 @@
 .contactUs li i {
   margin-right: 10px;
   font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .footer-container {
+    padding: 50px 60px;
+  }
+  .description {
+    text-align: justify;
+    width: 35%;
+  }
+  .links {
+    width: 25%;
+  }
+  .links h3 {
+    width: 66px;
+  }
+  .links a {
+    width: 66px;
+  }
+  .contactUs {
+    width: 40%;
+  }
+  .contactUs h3 {
+    width: 250px;
+  }
+  .contactUs li {
+    width: 250px;
+  }
+}
+
+@media (max-width: 769px) {
+  .footer-container {
+    padding: 50px 50px;
+  }
+  .description {
+    text-align: justify;
+    width: 60%;
+  }
+  .links {
+    width: 40%;
+  }
+  .contactUs {
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 50px 35px;
+  }
+  .description p {
+    font-size: 14px;
+  }
+  .links a {
+    font-size: 14px;
+  }
+  .links h3 {
+    font-size: 20px;
+  }
+  .contactUs li {
+    font-size: 14px;
+  }
+  .contactUs h3{
+    font-size: 20px;
+  }
 }

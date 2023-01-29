@@ -14,6 +14,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const [menu, setMenu] = useState(false);
   const { state } = useContext(cartContext);
 
   //navbar scroll changeBackground function
@@ -34,11 +35,15 @@ const Navbar = () => {
   return (
     <>
       <header className={navbar ? "header-section active" : "header-section"}>
-        <div className="logo">
-          <img src={logo} alt="logo" />
-        </div>
         <nav className="navbar">
-          <ul>
+          <div className="logo">
+            <img src={logo} alt="logo" />
+          </div>
+          <ul
+            id="navbarList"
+            className={menu ? "#navbarList active" : "#navbarList"}
+          onClick={() => setMenu(false)}
+          >
             <li>
               <NavLink
                 to="/"
@@ -80,13 +85,22 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          <div className="navbar-icons">
+            <div className="shoppingCartIcon">
+              <Link to="/cart">
+                <i className="fa-solid fa-cart-shopping"></i>
+                <span>{state.itemsCounter}</span>
+              </Link>
+            </div>
+            <div className="mobile" onClick={() => setMenu(!menu)}>
+            {menu ? (
+            <i className="fa-solid fa-xmark"></i>
+          ) : (
+            <i className="fa-solid fa-bars"></i>
+          )}
+            </div>
+          </div>
         </nav>
-        <div className="navbar-icons">
-          <Link to="/cart">
-            <i className="fa-solid fa-cart-shopping"></i>
-            <span>{state.itemsCounter}</span>
-          </Link>
-        </div>
       </header>
     </>
   );

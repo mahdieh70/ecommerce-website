@@ -28,7 +28,8 @@ const Cart = (props) => {
               -
             </button>
           ) : (
-            <button className="trashBtn"
+            <button
+              className="trashBtn"
               onClick={() =>
                 dispatch({ type: "REMOVE_ITEM", payload: props.data })
               }

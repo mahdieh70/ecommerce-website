@@ -13,8 +13,11 @@
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
-  padding: 100px 155px;
+  padding: 100px 100px;
   background-color: #f8f9fa;
+}
+.bilingDetails {
+  width: 550px;
 }
 .inputsContainer {
   display: flex;
@@ -31,7 +34,6 @@
 .billingHeader {
   background-color: #d5d4d4;
   padding: 15px 20px;
-  /* border-bottom: 1px solid gray; */
   border-top: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
@@ -154,4 +156,77 @@ input[type="number"] {
 }
 input:disabled {
   cursor: not-allowed;
+}
+@media (max-width: 1200px) {
+  .checkoutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .orderContainer {
+    margin-bottom: 20px;
+    height: 200px;
+    overflow: auto;
+  }
+}
+@media (max-width: 769px) {
+  .checkoutBanner {
+    height: 200px;
+  }
+  .checkoutBanner h1 {
+    padding-top: 100px;
+    font-size: 26px;
+}
+  .bilingDetails {
+    width: 450px;
+  }
+  .inputsContainer {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+
+  .checkoutBanner {
+    height: 130px;
+  }
+  .checkoutBanner h1 {
+    padding-top: 65px;
+    font-size: 23px;
+  }
+  .checkoutContainer {
+    padding: 50px 35px;
+  }
+  .orderContainer {
+    width: 100%;
+  }
+  .bilingDetails {
+    width: 100%;
+  }
+  .orderDetailsTable {
+    width: 100%;
+  }
+  .headerRow {
+    font-size: 14px;
+  }
+  .headerColumn {
+    width: 100%;
+  }
+  .footerColumn {
+    width: 100%;
+  }
+  .totalPriceRow {
+    font-size: 14px;
+  }
+  .billingHeader {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  .inputsContainer label {
+    font-size: 14px;
+  }
+  input {
+    padding: 5px;
+    margin: 0;
+  }
 }

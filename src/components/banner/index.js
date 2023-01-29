@@ -13,14 +13,8 @@ const Banner = () => {
         <div className="banner">
           <div className="detail-box">
             <h1>
-              <span>Sale 20% Off</span>
-              <br />
-              On Every Thing
+              <span>Sale 20% Off</span> On Every Thing
             </h1>
-            <p>
-              Quo rerum reiciendis quo voluptate dolorum et fugiat inventore ad unde velit. Eos voluptate incidunt ut earum voluptas ab quae officiis!
-              33 repellendus amet nam saepe repellendus est minima quae nam ipsa sint quo velit vero.
-            </p>
             <Link to="products">Shop Now</Link>
           </div>
         </div>

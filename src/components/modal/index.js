@@ -22,17 +22,10 @@ const Modal = ({ isShow, onClose, children, width }) => {
       {isShow
         ? createPortal(
             <div className="portal-root">
-              <div className="overlay" />
-              <div
-                style={{
-                  position: "fixed",
-                  height: "100%",
-                  width: "100%",
-                  overflow: "auto",
-                }}
-              >
+              <div className="overlay-container" />
+              <div className="overlay">
                 <div
-                  style={{ width: width ? width : 600 }}
+                  // style={{ width: width ? width : 600 }}
                   className="modal-area"
                 >
                   <i
