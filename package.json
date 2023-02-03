@@ -1,5 +1,4 @@
 {
-  "homepage": "http://mahdieh70.github.io/ecommerce-website",
   "name": "ecommerce-website",
   "version": "0.1.0",
   "private": true,
@@ -21,8 +20,6 @@
   },
   "scripts": {
     "start": "concurrently  \"npx json-server --watch data/db.json --port 8000\"   \"react-scripts start\"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
