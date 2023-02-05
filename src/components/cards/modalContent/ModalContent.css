@@ -1,16 +1,20 @@
 .modal-container {
   padding: 40px;
   display: flex;
+  align-items: center;
   position: relative;
 }
 .image-container {
-  width: 40%;
-  height: 100%;
-  background-color: #e2e2e2;
+  width: 230px;
+  padding: 30px;
+  height: 230px;
+  /* background-color: #e2e2e2; */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  /* border: 1px solid gray; */
+  box-shadow: 0 5px 24px rgb(149 157 165 / 40%);
 }
 .image-container img {
   width: 100%;
@@ -25,7 +29,7 @@
   opacity: 0.7;
 }
 .detailsContainer {
-  width: 60%;
+  width: 80%;
   margin-left: 50px;
   display: flex;
   flex-direction: column;
@@ -45,13 +49,14 @@
 }
 .text {
   margin: 30px 0;
+  text-align: justify;
 }
 .buttonContainer {
   width: 150px;
 }
 .addToCart {
   width: 100%;
-  height: 45px;
+padding: 12px 10px;
   border-radius: 20px;
   background-color: green;
   border: none;

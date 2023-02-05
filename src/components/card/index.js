@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 //َApi
 import axios from "axios";
 
+import spinner from "../../assets/Spin-1s-200px.gif";
+
 //component
 import Cards from "../cards";
 
@@ -14,7 +16,7 @@ const Card = () => {
   const [visible, setVisible] = useState(8);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/products").then((response) => {
+    axios.get("https://fakestoreapi.com/products").then((response) => {
       setProducts(response.data);
     });
   }, []);
@@ -30,9 +32,13 @@ const Card = () => {
     <>
       <div className="productsContainer">
         <div className="itemsContainer">
-          {products.slice(0, visible).map((item) => (
-            <Cards key={item.id} productData={item} />
-          ))}
+          {products.length ? (
+            products
+              .slice(0, visible)
+              .map((item) => <Cards key={item.id} productData={item} />)
+          ) : (
+            <img src={spinner} alt="spinner" />
+          )}
         </div>
         {isButtonVisible ? (
           <div className="loadMoreContainer">

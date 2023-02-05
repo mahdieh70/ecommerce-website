@@ -4,7 +4,7 @@ import { useContext } from "react";
 import "./ModalContent.css";
 
 //functions
-import { isInCart, quantityCount } from "../../../helpers/functions";
+import { isInCart, quantityCount,shorten } from "../../../helpers/functions";
 
 //context
 import { cartContext } from "../../../context/CartContextProvider";
@@ -25,7 +25,7 @@ const ModalContent = ({
         <img src={image} alt="product" />
       </div>
       <div className="detailsContainer">
-        <h3>{title}</h3>
+        <h3>{shorten(title)}</h3>
         <p>
           <span>category: </span>
           {category}

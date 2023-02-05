@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 //context
 import { cartContext } from "../../context/CartContextProvider";
 
+import { shorten } from "../../helpers/functions";
+
 //style
 import "../cart/cart.css";
 
@@ -15,7 +17,7 @@ const Cart = (props) => {
       <div className="cartDetailsArea">
         <img className="cartImage" src={image} alt="cartPic" />
         <div className="data">
-          <h3>{title}</h3>
+          <h3>{shorten(title)}</h3>
           <p>{price} $</p>
         </div>
         <div className="buttonWrapper">
