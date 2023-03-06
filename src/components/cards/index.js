@@ -1,5 +1,7 @@
 import { useState} from "react";
 
+import { shorten } from "../../helpers/functions";
+
 //modal
 import Modal from "../modal";
 
@@ -39,7 +41,7 @@ const Cards = ({ productData }) => {
           </button>
         </div>
         <div className="productsDetail">
-          <p className="title">{productData.title}</p>
+          <p className="title">{shorten(productData.title)}</p>
           <p className="price">{productData.price} $</p>
         </div>
       </div>

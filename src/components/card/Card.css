@@ -12,7 +12,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   min-height: 100vh;
-  padding: 80px 0 30px 0;
+  padding: 80px 55px 30px 55px;
 }
 .loadMoreContainer button {
   padding: 12px 22px;
